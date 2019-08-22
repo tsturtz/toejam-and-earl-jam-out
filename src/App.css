@@ -1,0 +1,148 @@
+#body-bg {
+  height: 100vh;
+  overflow: hidden;
+}
+#jam-out-bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/jam-out-bg-sprite.png);
+  background-repeat: no-repeat;
+  background-position: top 0% left 0%;
+  background-size: calc(100% * 4);
+}
+#jam-out-frame {
+  visibility: visible;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/jam-out-frame.png);
+  background-repeat: no-repeat;
+  background-position: top 50% left 50%;
+  background-size: 500px;
+  animation: checkeredFrame 20s steps(3, end) 0s infinite normal none;
+}
+#jam-out-border {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 50px solid #000;
+  box-sizing: border-box;
+}
+#toejam-box, #earl-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100px;
+  width: 110px;
+  z-index: 1;
+}
+#toejam-box {
+  height: 110px;
+  width: 110px;
+  left: 44%;
+}
+#earl-box {
+  height: 120px;
+  width: 110px;
+  top: 49.5%;
+  left: 54%;
+}
+#toejam, #earl {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#toejam {
+  background-image: url(./assets/toejam-dancing-sprite.png);
+  background-repeat: no-repeat;
+  background-position: top -4% left 0%;
+  background-size: 1500px auto;
+  animation: toejamIdle .5s steps(2, end) 0s infinite normal none;
+}
+#earl {
+  background-image: url(./assets/earl-dancing-sprite.png);
+  background-repeat: no-repeat;
+  background-position: top 0% left 0%;
+  background-size: 1500px auto;
+  animation: earlIdle .5s steps(2, end) 0s infinite normal none;
+}
+
+/* ANIMATIONS */
+
+/* MISC */
+@keyframes checkeredFrame {
+  0% { visibility: visible; }
+  30% { visibility: hidden; }
+  100% { visibility: hidden; }
+}
+@keyframes toejamIdle {
+  0% { background-position: top -4% left 0% }
+  100% { background-position: top -4% left 16% }
+}
+@keyframes earlIdle {
+  0% { background-position: top 0% left 0% }
+  100% { background-position: top 0% left 15% }
+}
+
+/* BACKGROUND SHIFT ANIMATIONS */
+#jam-out-bg.shifty1 { animation: shifty1 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty2 { animation: shifty2 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty3 { animation: shifty3 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty4 { animation: shifty4 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty5 { animation: shifty5 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty6 { animation: shifty6 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty7 { animation: shifty7 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty8 { animation: shifty8 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty9 { animation: shifty9 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty10 { animation: shifty10 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty11 { animation: shifty11 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty12 { animation: shifty12 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty13 { animation: shifty13 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty14 { animation: shifty14 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty15 { animation: shifty15 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty16 { animation: shifty16 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty17 { animation: shifty17 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty18 { animation: shifty18 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty19 { animation: shifty19 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty20 { animation: shifty20 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty21 { animation: shifty21 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty22 { animation: shifty22 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty23 { animation: shifty23 .5s steps(2, end) 0s infinite normal none; }
+#jam-out-bg.shifty24 { animation: shifty24 .5s steps(2, end) 0s infinite normal none; }
+@keyframes shifty1 { from { background-position: top 0% left 0% } to { background-position: top 0% left 66% } }
+@keyframes shifty2 { from { background-position: top 0% left 66% } to { background-position: top 0% left 132% } }
+/* --- */
+@keyframes shifty3 { from { background-position: top 8% left 0% } to { background-position: top 8% left 66% } }
+@keyframes shifty4 { from { background-position: top 8% left 66% } to { background-position: top 8% left 132% } }
+/* --- */
+@keyframes shifty5 { from { background-position: top 17% left 0% } to { background-position: top 17% left 66% } }
+@keyframes shifty6 { from { background-position: top 17% left 66% } to { background-position: top 17% left 132% } }
+/* --- */
+@keyframes shifty7 { from { background-position: top 25% left 0% } to { background-position: top 25% left 66% } }
+@keyframes shifty8 { from { background-position: top 25% left 66% } to { background-position: top 25% left 132% } }
+/* --- */
+@keyframes shifty9 { from { background-position: top 33% left 0% } to { background-position: top 33% left 66% } }
+@keyframes shifty10 { from { background-position: top 33% left 66% } to { background-position: top 33% left 132% } }
+/* --- */
+@keyframes shifty11 { from { background-position: top 42% left 0% } to { background-position: top 42% left 66% } }
+@keyframes shifty12 { from { background-position: top 42% left 66% } to { background-position: top 42% left 132% } }
+/* --- */
+@keyframes shifty13 { from { background-position: top 50% left 0% } to { background-position: top 50% left 66% } }
+@keyframes shifty14 { from { background-position: top 50% left 66% } to { background-position: top 50% left 132% } }
+/* --- */
+@keyframes shifty15 { from { background-position: top 58% left 0% } to { background-position: top 58% left 66% } }
+@keyframes shifty16 { from { background-position: top 58% left 66% } to { background-position: top 58% left 132% } }
+/* --- */
+@keyframes shifty17 { from { background-position: top 66% left 0% } to { background-position: top 66% left 66% } }
+@keyframes shifty18 { from { background-position: top 66% left 66% } to { background-position: top 66% left 132% } }
+/* --- */
+@keyframes shifty19 { from { background-position: top 75% left 0% } to { background-position: top 75% left 66% } }
+@keyframes shifty20 { from { background-position: top 75% left 66% } to { background-position: top 75% left 132% } }
+/* --- */
+@keyframes shifty21 { from { background-position: top 83% left 0% } to { background-position: top 83% left 66% } }
+@keyframes shifty22 { from { background-position: top 83% left 66% } to { background-position: top 83% left 132% } }
+/* --- */
+@keyframes shifty23 { from { background-position: top 91% left 0% } to { background-position: top 91% left 66% } }
+@keyframes shifty24 { from { background-position: top 91% left 66% } to { background-position: top 91% left 132% } }
