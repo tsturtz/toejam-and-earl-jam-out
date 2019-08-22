@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-// import {funkotronicBeat} from './assets/funkotronic-beat.mp3';
+import funkotronicBeat from './assets/funkotronic-beat.mp3';
 
 const App: React.FC = () => {
 
@@ -20,8 +20,8 @@ const App: React.FC = () => {
 
   return (
     <div id="body-bg">
-      <audio autoPlay controls>
-        <source src='./assets/funkotronic-beat.mp3' type="audio/mp3" />
+      <audio autoPlay loop>
+        <source src={funkotronicBeat} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
       <div id="jam-out-bg" className={`shifty${shifty}`}>
