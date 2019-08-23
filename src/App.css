@@ -6,6 +6,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
+  /* Thanks to sprite creator Ryan914 */
   background-image: url(./assets/jam-out-bg-sprite.png);
   background-repeat: no-repeat;
   background-position: top 0% left 0%;
@@ -16,11 +17,12 @@
   position: absolute;
   height: 100%;
   width: 100%;
+  /* Thanks to sprite creator Ryan914 */
   background-image: url(./assets/jam-out-frame.png);
   background-repeat: no-repeat;
   background-position: top 50% left 50%;
   background-size: 500px;
-  animation: checkeredFrame 15s steps(3, end) 0s infinite normal none;
+  animation: checkeredFrame 15s steps(4, end) 0s infinite normal none;
 }
 #jam-out-border {
   position: absolute;
@@ -55,6 +57,7 @@
   width: 100%;
 }
 #toejam {
+  /* Thanks to sprite creator Evil_Kefka */
   background-image: url(./assets/toejam-dancing-sprite.png);
   background-repeat: no-repeat;
   background-position: top -4% left 0%;
@@ -62,6 +65,7 @@
   animation: toejamIdle .5s steps(2, end) 0s infinite normal none;
 }
 #earl {
+  /* Thanks to sprite creator Evil_Kefka */
   background-image: url(./assets/earl-dancing-sprite.png);
   background-repeat: no-repeat;
   background-position: top 0% left 0%;
@@ -69,24 +73,72 @@
   animation: earlIdle .5s steps(2, end) 0s infinite normal none;
 }
 
+/* ---------- */
 /* ANIMATIONS */
+/* ---------- */
 
 /* MISC */
 @keyframes checkeredFrame {
   0% { visibility: hidden; }
-  80% { visibility: visible; }
+  20% { visibility: visible; }
+  40% { visibility: hidden; }
   100% { visibility: hidden; }
 }
-@keyframes toejamIdle {
-  0% { background-position: top -4% left 0% }
-  100% { background-position: top -4% left 16% }
+@keyframes toejamIdle { 0% { background-position: top -4% left 0% } 100% { background-position: top -4% left 16% } }
+@keyframes earlIdle { 0% { background-position: top 0% left 0% } 100% { background-position: top 0% left 15% } }
+
+/* TOEJAM DANCE */
+#toejam.dance1 { animation: toejamDance1 1s steps(2, end) 0s infinite normal none; }
+@keyframes toejamDance1 {
+  0% { background-position: top 47.5% left 0% }
+  50% { background-position: top 47.5% left 16.5% }
+  100% { background-position: top 47.5% left 34% }
 }
-@keyframes earlIdle {
-  0% { background-position: top 0% left 0% }
-  100% { background-position: top 0% left 15% }
+#toejam.dance2 { animation: toejamDance2 1s steps(2, end) 0s infinite normal none; }
+@keyframes toejamDance2 {
+  0% { background-position: top 47.5% left 49% }
+  50% { background-position: top 47.5% left 65% }
+  100% { background-position: top 47.5% left 81.5% }
+}
+#toejam.dance3 { animation: toejamDance3 1s steps(2, end) 0s infinite normal none; }
+@keyframes toejamDance3 {
+  0% { background-position: top 98% left 0% }
+  50% { background-position: top 98% left 50.5% }
+  100% { background-position: top 98% left 96% }
+}
+#toejam.dance4 { animation: toejamDance4 1s steps(2, end) 0s infinite normal none; }
+@keyframes toejamDance4 {
+  0% { background-position: top 98% left 73% }
+  50% { background-position: top 98% left 89% }
+  100% { background-position: top 98% left 73% }
+}
+/* EARL DANCE */
+#earl.dance1 { animation: earlDance1 1s steps(2, end) 0s infinite normal none; }
+@keyframes earlDance1 {
+  0% { background-position: top 47.5% left 0% }
+  50% { background-position: top 47.5% left 16.5% }
+  100% { background-position: top 47.5% left 34% }
+}
+#earl.dance2 { animation: earlDance2 1s steps(2, end) 0s infinite normal none; }
+@keyframes earlDance2 {
+  0% { background-position: top 47.5% left 49% }
+  50% { background-position: top 47.5% left 65% }
+  100% { background-position: top 47.5% left 81.5% }
+}
+#earl.dance3 { animation: earlDance3 1s steps(2, end) 0s infinite normal none; }
+@keyframes earlDance3 {
+  0% { background-position: top 98% left 0% }
+  50% { background-position: top 98% left 50.5% }
+  100% { background-position: top 98% left 96% }
+}
+#earl.dance4 { animation: earlDance4 1s steps(2, end) 0s infinite normal none; }
+@keyframes earlDance4 {
+  0% { background-position: top 98% left 73% }
+  50% { background-position: top 98% left 89% }
+  100% { background-position: top 98% left 73% }
 }
 
-/* BACKGROUND SHIFT ANIMATIONS */
+/* BACKGROUND SHIFTY ANIMATIONS */
 #jam-out-bg.shifty1 { animation: shifty1 .5s steps(2, end) 0s infinite normal none; }
 #jam-out-bg.shifty2 { animation: shifty2 .5s steps(2, end) 0s infinite normal none; }
 #jam-out-bg.shifty3 { animation: shifty3 .5s steps(2, end) 0s infinite normal none; }
@@ -113,36 +165,25 @@
 #jam-out-bg.shifty24 { animation: shifty24 .5s steps(2, end) 0s infinite normal none; }
 @keyframes shifty1 { from { background-position: top 0% left 0% } to { background-position: top 0% left 66% } }
 @keyframes shifty2 { from { background-position: top 0% left 66% } to { background-position: top 0% left 132% } }
-/* --- */
 @keyframes shifty3 { from { background-position: top 8% left 0% } to { background-position: top 8% left 66% } }
 @keyframes shifty4 { from { background-position: top 8% left 66% } to { background-position: top 8% left 132% } }
-/* --- */
 @keyframes shifty5 { from { background-position: top 17% left 0% } to { background-position: top 17% left 66% } }
 @keyframes shifty6 { from { background-position: top 17% left 66% } to { background-position: top 17% left 132% } }
-/* --- */
 @keyframes shifty7 { from { background-position: top 25% left 0% } to { background-position: top 25% left 66% } }
 @keyframes shifty8 { from { background-position: top 25% left 66% } to { background-position: top 25% left 132% } }
-/* --- */
 @keyframes shifty9 { from { background-position: top 33% left 0% } to { background-position: top 33% left 66% } }
 @keyframes shifty10 { from { background-position: top 33% left 66% } to { background-position: top 33% left 132% } }
-/* --- */
 @keyframes shifty11 { from { background-position: top 42% left 0% } to { background-position: top 42% left 66% } }
 @keyframes shifty12 { from { background-position: top 42% left 66% } to { background-position: top 42% left 132% } }
-/* --- */
 @keyframes shifty13 { from { background-position: top 50% left 0% } to { background-position: top 50% left 66% } }
 @keyframes shifty14 { from { background-position: top 50% left 66% } to { background-position: top 50% left 132% } }
-/* --- */
 @keyframes shifty15 { from { background-position: top 58% left 0% } to { background-position: top 58% left 66% } }
 @keyframes shifty16 { from { background-position: top 58% left 66% } to { background-position: top 58% left 132% } }
-/* --- */
 @keyframes shifty17 { from { background-position: top 66% left 0% } to { background-position: top 66% left 66% } }
 @keyframes shifty18 { from { background-position: top 66% left 66% } to { background-position: top 66% left 132% } }
-/* --- */
 @keyframes shifty19 { from { background-position: top 75% left 0% } to { background-position: top 75% left 66% } }
 @keyframes shifty20 { from { background-position: top 75% left 66% } to { background-position: top 75% left 132% } }
-/* --- */
 @keyframes shifty21 { from { background-position: top 83% left 0% } to { background-position: top 83% left 66% } }
 @keyframes shifty22 { from { background-position: top 83% left 66% } to { background-position: top 83% left 132% } }
-/* --- */
 @keyframes shifty23 { from { background-position: top 91% left 0% } to { background-position: top 91% left 66% } }
 @keyframes shifty24 { from { background-position: top 91% left 66% } to { background-position: top 91% left 132% } }
