@@ -8,14 +8,14 @@ const App: React.FC = () => {
   const [toejamDance, setToejamDance] = useState('');
   const [earlDance, setEarlDance] = useState('');
   // used 'any' here because HTMLAudioElement | null doesnt cast correctly
-  const audioRef:any = useRef(document.getElementById('funk'));
-  let animTimeout:any = null;
+  const audioRef: any = useRef(document.getElementById('funk'));
+  let animTimeout: any = null;
 
-  const drumpadHit = (sound) => {
+  const drumpadHit = (sound: string) => {
     // play audios
   }
 
-  const initiateDance = (func:any, val:any) => {
+  const initiateDance = (func: any, val: any) => {
     clearTimeout(animTimeout);
     func(val);
     animTimeout = setTimeout(() => { func('') }, 1000);
