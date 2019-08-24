@@ -473,7 +473,7 @@ module.exports = function(webpackEnv) {
               ),
             },
             {
-              test: /\.mp3$/,
+              test: /\.(mp3|wav)$/,
               loader: 'file-loader',
               options: {
                 name: '[path][name].[ext]',

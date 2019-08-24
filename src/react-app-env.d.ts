@@ -38,6 +38,10 @@ declare module '*.mp3' { // TODO: write a blog post about this (and about what i
   const src: string;
   export default src;
 }
+declare module '*.wav' { // TODO: write a blog post about this (and about what i needed to do to add wav file-loader)
+  const src: string;
+  export default src;
+}
 
 declare module '*.webp' {
     const src: string;
