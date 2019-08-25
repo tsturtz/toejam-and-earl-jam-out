@@ -1,4 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import './App.css';
 
 import funkotronicBeat from './assets/jams/funkotronic-beat.mp3';
@@ -16,6 +21,7 @@ import swoosh from './assets/samples/swoosh.wav';
 
 const App: React.FC = () => {
 
+  const [isPaused, setPaused] = useState(true);
   const [shifty, setShifty] = useState(1);
   const [toejamDance, setToejamDance] = useState('');
   const [earlDance, setEarlDance] = useState('');
@@ -42,11 +48,66 @@ const App: React.FC = () => {
     ref.current.play();
   }
 
-  const dance = (func: any, val: any, char: any) => {
-    clearTimeout(char);
-    func(val);
-    char = setTimeout(() => { func('') }, 1000);
+  const dance = (updateStateFunc: any, val: any, characterTimeout: any) => {
+    clearTimeout(characterTimeout);
+    updateStateFunc(val);
+    characterTimeout = setTimeout(() => { updateStateFunc('') }, 1000);
   }
+
+  const handleKeyPress = useCallback((e) => {
+    if (e.code === 'Space' || e.code === 'Enter') {
+      setPaused((prevPause) => !prevPause);
+    }
+
+    // do not fire audio/dance effects if paused or unpause music
+    if (isPaused) {
+      // funkotronicBeatRef.current.pause();
+      return;
+    }
+
+    // funkotronicBeatRef.current.load();
+    // funkotronicBeatRef.current.play();
+
+    // audio/dance effects for keypresses 1 thru 0
+    if (e.code === 'Digit1') {
+      drumpadHit(kickRef);
+      dance(setToejamDance, 'dance1', toejamAnimationTimeout);
+      dance(setEarlDance, 'dance1', earlAnimationTimeout);
+    }
+    if (e.code === 'Digit2') {
+      drumpadHit(snareRef);
+      dance(setToejamDance, 'dance2', toejamAnimationTimeout);
+      dance(setEarlDance, 'dance2', earlAnimationTimeout);
+    }
+    if (e.code === 'Digit3') {
+      drumpadHit(clapRef);
+      dance(setToejamDance, 'dance3', toejamAnimationTimeout);
+      dance(setEarlDance, 'dance3', earlAnimationTimeout);
+    }
+    if (e.code === 'Digit4') {
+      drumpadHit(scratchRef);
+      dance(setToejamDance, 'dance4', toejamAnimationTimeout);
+      dance(setEarlDance, 'dance4', earlAnimationTimeout);
+    }
+    if (e.code === 'Digit5') {
+      drumpadHit(yeahalrightRef);
+    }
+    if (e.code === 'Digit6') {
+      drumpadHit(jamminRef);
+    }
+    if (e.code === 'Digit7') {
+      drumpadHit(toejamRef);
+    }
+    if (e.code === 'Digit8') {
+      drumpadHit(bigearlRef);
+    }
+    if (e.code === 'Digit9') {
+      drumpadHit(burpRef);
+    }
+    if (e.code === 'Digit0') {
+      drumpadHit(swooshRef);
+    }
+  }, [isPaused])
 
   useEffect (() => {
     const interval = setInterval(() => {
@@ -54,73 +115,23 @@ const App: React.FC = () => {
       setShifty(Math.floor(Math.random() * 24) + 1);
     }, 3000);
 
-    funkotronicBeatRef.current.load();
+    window.addEventListener('keypress', handleKeyPress);
 
-    setTimeout(() => {
-      // eslint-disable-next-line
-      if (confirm('play music')) {
-        funkotronicBeatRef.current.play();
-      }
-    }, 3000);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('keypress', handleKeyPress);
+    };
+  }, [handleKeyPress]); // empty array here so this only runs once on component did mount (this seems weird 🤔)
 
-    window.addEventListener('keypress', (e) => {
-      // SOUND FX
-
-      // 1
-      if (e.which === 49) {
-        drumpadHit(kickRef);
-        dance(setToejamDance, 'dance1', toejamAnimationTimeout);
-        dance(setEarlDance, 'dance1', earlAnimationTimeout);
-      }
-      // 2
-      if (e.which === 50) {
-        drumpadHit(snareRef);
-        dance(setToejamDance, 'dance2', toejamAnimationTimeout);
-        dance(setEarlDance, 'dance2', earlAnimationTimeout);
-      }
-      // 3
-      if (e.which === 51) {
-        drumpadHit(clapRef);
-        dance(setToejamDance, 'dance3', toejamAnimationTimeout);
-        dance(setEarlDance, 'dance3', earlAnimationTimeout);
-      }
-      // 4
-      if (e.which === 52) {
-        drumpadHit(scratchRef);
-        dance(setToejamDance, 'dance4', toejamAnimationTimeout);
-        dance(setEarlDance, 'dance4', earlAnimationTimeout);
-      }
-      // 5
-      if (e.which === 53) {
-        drumpadHit(yeahalrightRef);
-      }
-      // 6
-      if (e.which === 54) {
-        drumpadHit(jamminRef);
-      }
-      // 7
-      if (e.which === 55) {
-        drumpadHit(toejamRef);
-      }
-      // 8
-      if (e.which === 56) {
-        drumpadHit(bigearlRef);
-      }
-      // 9
-      if (e.which === 57) {
-        drumpadHit(burpRef);
-      }
-      // 0
-      if (e.which === 48) {
-        drumpadHit(swooshRef);
-      }
-    })
-
-    return () => { clearInterval(interval); };
-  }, []); // empty array here so this only runs once on component did mount (this seems weird 🤔)
-
+  useEffect (() => {
+    if (!isPaused) {
+      funkotronicBeatRef.current.play();
+    } else {
+      funkotronicBeatRef.current.pause();
+    }
+  }, [isPaused]);
   return (
-    <div id="body-bg">
+    <div id="body-bg" onKeyPress={(event) => { console.log('~~>', event.which) }}>
       <div id="jam-out-bg" className={`shifty${shifty}`}>
         <div id="toejam-box">
           <div id="toejam" className={`${toejamDance}`} />
@@ -133,9 +144,53 @@ const App: React.FC = () => {
       <div id="jam-out-border" />
 
       {/* INTRO/PAUSE */}
-      <div id="space-background">
-        <div id="press-spacebar" />
-      </div>
+      {isPaused && (
+        <div id="space-background">
+          <div id="jam-out-title">
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+          </div>
+          <div id="press-spacebar">
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+            <span className="press-spacebar-letter" />
+          </div>
+        </div>
+      )}
 
       {/* JAMS */}
       <audio id="funkotronicBeat" ref={funkotronicBeatRef} preload="auto" loop>

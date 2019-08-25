@@ -1,34 +1,122 @@
+:root {
+  --text-sprite-animation: .35s steps(2, end) 0s infinite normal none;
+
+  --text-sprite-row-one: 1%;
+  --text-sprite-row-two: 9.5%;
+  --text-sprite-row-three: 18%;
+  --text-sprite-row-four: 26.5%;
+  --text-sprite-row-five: 42%;
+  --text-sprite-row-six: 50.5%;
+  --text-sprite-row-seven: 65%;
+  --text-sprite-row-eight: 74%;
+  --text-sprite-row-nine: 83%;
+
+  --text-sprite-col-one: 1.75%;
+  --text-sprite-col-two: 8%;
+  --text-sprite-col-three: 14.5%;
+  --text-sprite-col-four: 23%;
+  --text-sprite-col-five: 29%;
+  --text-sprite-col-six: 36%;
+  /* --text-sprite-col-seven: 43.5%; */
+  --text-sprite-col-eight: 60%;
+  /* --text-sprite-col-nine: %; */
+  --text-sprite-col-ten: 63%;
+  --text-sprite-col-eleven: 70%;
+  --text-sprite-col-twelve: 77%;
+  --text-sprite-col-thirteen: 84%;
+  --text-sprite-col-fourteen: 90%;
+  --text-sprite-col-fifteen: 98%;
+}
+
 #space-background {
   position: absolute;
   height: 100%;
   width: 100%;
   z-index: 2;
-  /* background-image: url(./assets/space-background.png); */
+  background-image: url(./assets/space-background.png);
   background-repeat: no-repeat;
   background-position: top 0% left 0%;
   background-size: cover;
 }
+#jam-out-title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+}
+.jam-out-title-letter {
+  display: inline-block;
+  height: 34px;
+  width: 30px;
+  background-image: url(./assets/sprites/font-sprite.png); /* Thanks to sprite creator DrKelexo */
+  background-repeat: no-repeat;
+  background-size: 500px auto;
+}
+.jam-out-title-letter:nth-child(1) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-five); }
+.jam-out-title-letter:nth-child(2) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fifteen); }
+.jam-out-title-letter:nth-child(3) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-five); }
+.jam-out-title-letter:nth-child(4) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-ten); }
+.jam-out-title-letter:nth-child(5) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-one); }
+.jam-out-title-letter:nth-child(6) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-thirteen); }
+.jam-out-title-letter:nth-child(7) { background-position: top 1000% left 1000%; }
+.jam-out-title-letter:nth-child(8) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-one); }
+.jam-out-title-letter:nth-child(9) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fourteen); }
+.jam-out-title-letter:nth-child(10) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-four); }
+.jam-out-title-letter:nth-child(11) { background-position: top 1000% left 1000%; }
+.jam-out-title-letter:nth-child(12) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-five); }
+.jam-out-title-letter:nth-child(13) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-one); }
+.jam-out-title-letter:nth-child(14) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-three); }
+.jam-out-title-letter:nth-child(15) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-twelve); }
+.jam-out-title-letter:nth-child(16) { background-position: top 1000% left 1000%; }
+.jam-out-title-letter:nth-child(17) { background-position: top var(--text-sprite-row-nine) left var(--text-sprite-col-four); }
+.jam-out-title-letter:nth-child(18) { background-position: top 1000% left 1000%; }
+.jam-out-title-letter:nth-child(19) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-ten); }
+.jam-out-title-letter:nth-child(20) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-one); }
+.jam-out-title-letter:nth-child(21) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-thirteen); }
+.jam-out-title-letter:nth-child(22) { background-position: top 1000% left 1000%; }
+.jam-out-title-letter:nth-child(23) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fifteen); }
+.jam-out-title-letter:nth-child(24) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-six); }
+.jam-out-title-letter:nth-child(25) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-five); }
 #press-spacebar {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 100px;
-  width: 110px;
   z-index: 3;
-  /* Thanks to sprite creator DrKelexo */
-  background-image: url(./assets/sprites/font-sprite.png);
-  background-repeat: no-repeat;
-  background-position: top 0% left 0%;
-  background-size: 1500px auto;
+  display: flex;
+  justify-content: center;
 }
+.press-spacebar-letter {
+  display: inline-block;
+  height: 50px;
+  width: 40px;
+  background-image: url(./assets/sprites/font-sprite.png); /* Thanks to sprite creator DrKelexo */
+  background-repeat: no-repeat;
+  background-size: 700px auto;
+}
+.press-spacebar-letter:nth-child(1) { animation: p var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(2) { animation: r var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(3) { animation: e var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(4) { animation: s var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(5) { animation: s var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(6) { background-position: top 1000% left 1000%; }
+.press-spacebar-letter:nth-child(7) { animation: s var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(8) { animation: p var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(9) { animation: a var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(10) { animation: c var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(11) { animation: e var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(12) { animation: b var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(13) { animation: a var(--text-sprite-animation); }
+.press-spacebar-letter:nth-child(14) { animation: r var(--text-sprite-animation); }
 
 #jam-out-bg {
   position: absolute;
   height: 100%;
   width: 100%;
-  /* Thanks to sprite creator Ryan914 */
-  background-image: url(./assets/sprites/jam-out-bg-sprite.png);
+  background-image: url(./assets/sprites/jam-out-bg-sprite.png); /* Thanks to sprite creator Ryan914 */
   background-repeat: no-repeat;
   background-position: top 0% left 0%;
   background-size: calc(100% * 4);
@@ -38,8 +126,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  /* Thanks to sprite creator Ryan914 */
-  background-image: url(./assets/sprites/jam-out-frame.png);
+  background-image: url(./assets/sprites/jam-out-frame.png); /* Thanks to sprite creator Ryan914 */
   background-repeat: no-repeat;
   background-position: top 50% left 50%;
   background-size: 500px;
@@ -78,16 +165,14 @@
   width: 100%;
 }
 #toejam {
-  /* Thanks to sprite creator Evil_Kefka */
-  background-image: url(./assets/sprites/toejam-dancing-sprite.png);
+  background-image: url(./assets/sprites/toejam-dancing-sprite.png); /* Thanks to sprite creator Evil_Kefka */
   background-repeat: no-repeat;
   background-position: top -4% left 0%;
   background-size: 1500px auto;
   animation: toejamIdle .5s steps(2, end) 0s infinite normal none;
 }
 #earl {
-  /* Thanks to sprite creator Evil_Kefka */
-  background-image: url(./assets/sprites/earl-dancing-sprite.png);
+  background-image: url(./assets/sprites/earl-dancing-sprite.png); /* Thanks to sprite creator Evil_Kefka */
   background-repeat: no-repeat;
   background-position: top 0% left 0%;
   background-size: 1500px auto;
@@ -157,6 +242,36 @@
   0% { background-position: top 98% left 73% }
   50% { background-position: top 98% left 89% }
   100% { background-position: top 98% left 73% }
+}
+
+/* LETTER JITTERS */
+@keyframes a {
+  from { background-position: top var(--text-sprite-row-one) left var(--text-sprite-col-one); }
+  to { background-position: top 65% left var(--text-sprite-col-one); }
+}
+@keyframes b {
+  from { background-position: top var(--text-sprite-row-one) left var(--text-sprite-col-two); }
+  to { background-position: top 65% left var(--text-sprite-col-two); }
+}
+@keyframes c {
+  from { background-position: top var(--text-sprite-row-one) left var(--text-sprite-col-three); }
+  to { background-position: top 65% left var(--text-sprite-col-three); }
+}
+@keyframes e {
+  from { background-position: top var(--text-sprite-row-one) left var(--text-sprite-col-five); }
+  to { background-position: top 65% left var(--text-sprite-col-five); }
+}
+@keyframes p {
+  from { background-position: top var(--text-sprite-row-two) left var(--text-sprite-col-one); }
+  to { background-position: top 75% left var(--text-sprite-col-one); }
+}
+@keyframes r {
+  from { background-position: top var(--text-sprite-row-two) left var(--text-sprite-col-three); }
+  to { background-position: top 75% left var(--text-sprite-col-three); }
+}
+@keyframes s {
+  from { background-position: top var(--text-sprite-row-two) left var(--text-sprite-col-four); }
+  to { background-position: top 75% left var(--text-sprite-col-four); }
 }
 
 /* BACKGROUND SHIFTY ANIMATIONS */
