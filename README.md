@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dbba232e-0e95-49e2-bc9d-9a6e96d689c6/deploy-status)](https://app.netlify.com/sites/elastic-aryabhata-b17170/deploys)
+
 ## Toejam and Earl Jam Out - *Browser Edition!*
 ### Made with ❤️, sprites & CSS keyframes, React hooks, and 'any' riddled Typescript 🤦‍
 
