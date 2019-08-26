@@ -6,7 +6,12 @@ import React, {
 } from 'react';
 import './App.css';
 
+import alienBreakDown from './assets/jams/alien-break-down.mp3';
+import bigEarlBump from './assets/jams/big-earl-bump.mp3';
 import funkotronicBeat from './assets/jams/funkotronic-beat.mp3';
+import rapmasterRocketRacket from './assets/jams/rapmaster-rocket-racket.mp3';
+import toejamJammin from './assets/jams/toejam-jammin.mp3';
+import toejamSlowjam from './assets/jams/toejam-slowjam.mp3';
 
 import kick from './assets/samples/kick.wav';
 import snare from './assets/samples/snare.wav';
@@ -23,11 +28,18 @@ const App: React.FC = () => {
 
   const [isPaused, setPaused] = useState(true);
   const [shifty, setShifty] = useState(1);
-  const [toejamDance, setToejamDance] = useState('');
-  const [earlDance, setEarlDance] = useState('');
+  const [alienDance, setDance] = useState('');
 
   // used 'any' here because HTMLAudioElement | null doesnt cast correctly
-  const funkotronicBeatRef: any = useRef(document.getElementById('funkotronicBeat'));
+  const jam1Ref: any = useRef(document.getElementById('jam1'));
+  const jam2Ref: any = useRef(document.getElementById('jam2'));
+  const jam3Ref: any = useRef(document.getElementById('jam3'));
+  const jam4Ref: any = useRef(document.getElementById('jam4'));
+  const jam5Ref: any = useRef(document.getElementById('jam5'));
+  const jam6Ref: any = useRef(document.getElementById('jam6'));
+  const jams = [jam1Ref, jam2Ref, jam3Ref, jam4Ref, jam5Ref, jam6Ref];
+  const [jam, setJam] = useState(2); // TODO: need to do some work setting the jams (when one ends or when left/right is pressed)
+
   const kickRef: any = useRef(document.getElementById('kickRef'));
   const snareRef: any = useRef(document.getElementById('snareRef'));
   const clapRef: any = useRef(document.getElementById('clapRef'));
@@ -39,8 +51,7 @@ const App: React.FC = () => {
   const burpRef: any = useRef(document.getElementById('burpRef'));
   const swooshRef: any = useRef(document.getElementById('swooshRef'));
   
-  let toejamAnimationTimeout: any = '';
-  let earlAnimationTimeout: any = '';
+  let alienAnimationTimeout: any = '';
 
   const drumpadHit = (ref: any) => {
     ref.current.pause();
@@ -48,66 +59,87 @@ const App: React.FC = () => {
     ref.current.play();
   }
 
-  const dance = (updateStateFunc: any, val: any, characterTimeout: any) => {
-    clearTimeout(characterTimeout);
+  const dance = (updateStateFunc: any, val: any) => {
+    clearTimeout(alienAnimationTimeout);
     updateStateFunc(val);
-    characterTimeout = setTimeout(() => { updateStateFunc('') }, 1000);
+    alienAnimationTimeout = setTimeout(() => { updateStateFunc('') }, 1000);
   }
 
-  const handleKeyPress = useCallback((e) => {
+  const prevJam = () => {
+    setJam((prevJam: any) => prevJam === jams.length - 1 ? 0 : prevJam += 1);
+  }
+  const nextJam = () => {
+    setJam((prevJam: any) => prevJam === 0 ? jams.length - 1 : prevJam -= 1);
+  }
+
+  // const handleClick = useCallback((e: any) => {
+  //   if (!isPaused) {
+  //     setPaused(true);
+  //   }
+  // }, [isPaused]);
+
+  const handleKeyPress = useCallback((e: any) => {
     if (e.code === 'Space' || e.code === 'Enter') {
       setPaused((prevPause) => !prevPause);
     }
+    
+    // do not fire audio effects if paused
+    if (isPaused) return;
 
-    // do not fire audio/dance effects if paused or unpause music
-    if (isPaused) {
-      // funkotronicBeatRef.current.pause();
-      return;
+    // change music forward or backward
+    if (e.key === '<' || e.key === ',') {
+      jams[jam].current.pause();
+      jams[jam].current.load();
+      prevJam();
     }
-
-    // funkotronicBeatRef.current.load();
-    // funkotronicBeatRef.current.play();
+    if (e.key === '>' || e.key === '.') {
+      jams[jam].current.pause();
+      jams[jam].current.load();
+      nextJam();
+    }
 
     // audio/dance effects for keypresses 1 thru 0
     if (e.code === 'Digit1') {
       drumpadHit(kickRef);
-      dance(setToejamDance, 'dance1', toejamAnimationTimeout);
-      dance(setEarlDance, 'dance1', earlAnimationTimeout);
+      dance(setDance, 'dance1');
     }
     if (e.code === 'Digit2') {
       drumpadHit(snareRef);
-      dance(setToejamDance, 'dance2', toejamAnimationTimeout);
-      dance(setEarlDance, 'dance2', earlAnimationTimeout);
+      dance(setDance, 'dance2');
     }
     if (e.code === 'Digit3') {
       drumpadHit(clapRef);
-      dance(setToejamDance, 'dance3', toejamAnimationTimeout);
-      dance(setEarlDance, 'dance3', earlAnimationTimeout);
+      dance(setDance, 'dance3');
     }
     if (e.code === 'Digit4') {
       drumpadHit(scratchRef);
-      dance(setToejamDance, 'dance4', toejamAnimationTimeout);
-      dance(setEarlDance, 'dance4', earlAnimationTimeout);
+      dance(setDance, 'dance4');
     }
     if (e.code === 'Digit5') {
       drumpadHit(yeahalrightRef);
+      dance(setDance, 'dance5');
     }
     if (e.code === 'Digit6') {
       drumpadHit(jamminRef);
+      dance(setDance, 'dance6');
     }
     if (e.code === 'Digit7') {
       drumpadHit(toejamRef);
+      dance(setDance, 'dance7');
     }
     if (e.code === 'Digit8') {
       drumpadHit(bigearlRef);
+      dance(setDance, 'dance8');
     }
     if (e.code === 'Digit9') {
       drumpadHit(burpRef);
+      dance(setDance, 'dance9');
     }
     if (e.code === 'Digit0') {
       drumpadHit(swooshRef);
+      dance(setDance, 'dance0');
     }
-  }, [isPaused])
+  }, [isPaused, jam]);
 
   useEffect (() => {
     const interval = setInterval(() => {
@@ -116,6 +148,7 @@ const App: React.FC = () => {
     }, 3000);
 
     window.addEventListener('keypress', handleKeyPress);
+    // window.addEventListener('click', handleClick);
 
     return () => {
       clearInterval(interval);
@@ -123,30 +156,89 @@ const App: React.FC = () => {
     };
   }, [handleKeyPress]); // empty array here so this only runs once on component did mount (this seems weird 🤔)
 
+  // useEffect (() => {
+  //   setJam((prevJam: any) => {
+  //     console.log('prev jam index: ', prevJam);
+  //     jams[jam].current.pause();
+  //     jams[jam].current.load();
+  //     return prevJam < jams.length - 1 ? prevJam += 1 : 0;
+  //   });
+  // }, [jam])
+
   useEffect (() => {
     if (!isPaused) {
-      funkotronicBeatRef.current.play();
+      jams[jam].current.onended = () => {
+        nextJam();
+      };
+      jams[jam].current.play();
     } else {
-      funkotronicBeatRef.current.pause();
+      jams[jam].current.pause();
     }
-  }, [isPaused]);
+  }, [isPaused, jam]);
+
   return (
     <div id="body-bg" onKeyPress={(event) => { console.log('~~>', event.which) }}>
       <div id="jam-out-bg" className={`shifty${shifty}`}>
         <div id="toejam-box">
-          <div id="toejam" className={`${toejamDance}`} />
+          <div id="toejam" className={`${alienDance}`} />
         </div>
         <div id="earl-box">
-          <div id="earl" className={`${earlDance}`} />
+          <div id="earl" className={`${alienDance}`} />
         </div>
         <div id="jam-out-frame" />
+        <div id="jam-out-text">
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+          <span className="jam-out-text-letter" />
+        </div>
       </div>
       <div id="jam-out-border" />
 
       {/* INTRO/PAUSE */}
       {isPaused && (
         <div id="space-background">
-          <div id="jam-out-title">
+          <div id="jam-out-title1">
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
+          </div>
+          <div id="jam-out-title2">
             <span className="jam-out-title-letter" />
             <span className="jam-out-title-letter" />
             <span className="jam-out-title-letter" />
@@ -189,12 +281,94 @@ const App: React.FC = () => {
             <span className="press-spacebar-letter" />
             <span className="press-spacebar-letter" />
           </div>
+          <div id="instructions1">
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+          </div>
+          <div id="instructions2">
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+            <span className="instructions-letter" />
+          </div>
+          <a id="github-twitter" href="https://github.com/tsturtz/toejam-and-earl-jam-out">
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+            <span className="github-twitter-letter" />
+          </a>
         </div>
       )}
 
       {/* JAMS */}
-      <audio id="funkotronicBeat" ref={funkotronicBeatRef} preload="auto" loop>
+      <audio id="jam1" ref={jam1Ref} preload="auto">
+        <source src={alienBreakDown} type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="jam2" ref={jam2Ref} preload="auto">
+        <source src={bigEarlBump} type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="jam3" ref={jam3Ref} preload="auto">
         <source src={funkotronicBeat} type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="jam4" ref={jam4Ref} preload="auto">
+        <source src={rapmasterRocketRacket} type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="jam5" ref={jam5Ref} preload="auto">
+        <source src={toejamJammin} type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="jam6" ref={jam6Ref} preload="auto">
+        <source src={toejamSlowjam} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
 
