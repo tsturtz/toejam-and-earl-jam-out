@@ -1,4 +1,5 @@
 import React, {
+  Fragment,
   useCallback,
   useEffect,
   useRef,
@@ -177,47 +178,15 @@ const App: React.FC = () => {
   }, [isPaused, jam]);
 
   return (
-    <div id="body-bg" onKeyPress={(event) => { console.log('~~>', event.which) }}>
-      <div id="jam-out-bg" className={`shifty${shifty}`}>
-        <div id="toejam-box">
-          <div id="toejam" className={`${alienDance}`} />
-        </div>
-        <div id="earl-box">
-          <div id="earl" className={`${alienDance}`} />
-        </div>
-        <div id="jam-out-frame" />
-        <div id="jam-out-text">
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-          <span className="jam-out-text-letter" />
-        </div>
-      </div>
-      <div id="jam-out-border" />
+    <div id="body-bg">
 
+      <div id="mobile" />
       {/* INTRO/PAUSE */}
-      {isPaused && (
+      {isPaused ? (
         <div id="space-background">
           <div id="jam-out-title1">
+            <span className="jam-out-title-letter" />
+            <span className="jam-out-title-letter" />
             <span className="jam-out-title-letter" />
             <span className="jam-out-title-letter" />
             <span className="jam-out-title-letter" />
@@ -327,23 +296,61 @@ const App: React.FC = () => {
             <span className="instructions-letter" />
             <span className="instructions-letter" />
           </div>
-          <a id="github-twitter" href="https://github.com/tsturtz/toejam-and-earl-jam-out">
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
-            <span className="github-twitter-letter" />
+          <a id="github" href="https://github.com/tsturtz/toejam-and-earl-jam-out" target="_blank">
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
+            <span className="github-letter" />
           </a>
         </div>
+      ) : (
+        <Fragment>
+          <div id="jam-out-bg" className={`shifty${shifty}`}>
+            <div id="toejam-box">
+              <div id="toejam" className={`${alienDance}`} />
+            </div>
+            <div id="earl-box">
+              <div id="earl" className={`${alienDance}`} />
+            </div>
+            <div id="jam-out-frame" />
+            <div id="jam-out-text">
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+              <span className="jam-out-text-letter" />
+            </div>
+          </div>
+          <div id="jam-out-border" />
+        </Fragment>
       )}
 
       {/* JAMS */}

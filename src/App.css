@@ -24,7 +24,7 @@
   --text-sprite-col-three: 15%;
   --text-sprite-col-four: 23%;
   --text-sprite-col-five: 29%;
-  --text-sprite-col-six: 35.5%;
+  --text-sprite-col-six: 36%;
   --text-sprite-col-seven: 42%;
   --text-sprite-col-eight: 49%;
   --text-sprite-col-nine: 56%;
@@ -69,23 +69,25 @@
 }
 #jam-out-title1 .jam-out-title-letter:nth-child(1) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-one); }
 #jam-out-title1 .jam-out-title-letter:nth-child(2) { background-position: top 1000% left 1000%; }
-#jam-out-title1 .jam-out-title-letter:nth-child(3) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-six); }
+#jam-out-title1 .jam-out-title-letter:nth-child(3) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-ten); }
 #jam-out-title1 .jam-out-title-letter:nth-child(4) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-six); }
-#jam-out-title1 .jam-out-title-letter:nth-child(5) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fourteen); }
-#jam-out-title1 .jam-out-title-letter:nth-child(6) { background-position: top 1000% left 1000%; }
-#jam-out-title1 .jam-out-title-letter:nth-child(7) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-three); }
-#jam-out-title1 .jam-out-title-letter:nth-child(8) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-five); }
-#jam-out-title1 .jam-out-title-letter:nth-child(9) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-three); }
+#jam-out-title1 .jam-out-title-letter:nth-child(5) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-four); }
+#jam-out-title1 .jam-out-title-letter:nth-child(6) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-five); }
+#jam-out-title1 .jam-out-title-letter:nth-child(7) { background-position: top var(--text-sprite-row-nine) left var(--text-sprite-col-four); }
+#jam-out-title1 .jam-out-title-letter:nth-child(8) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-six); }
+#jam-out-title1 .jam-out-title-letter:nth-child(9) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fifteen); }
 #jam-out-title1 .jam-out-title-letter:nth-child(10) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-three); }
-#jam-out-title1 .jam-out-title-letter:nth-child(11) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-five); }
-#jam-out-title1 .jam-out-title-letter:nth-child(12) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-one); }
-#jam-out-title1 .jam-out-title-letter:nth-child(13) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-five); }
-#jam-out-title1 .jam-out-title-letter:nth-child(14) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-nine); }
-#jam-out-title1 .jam-out-title-letter:nth-child(15) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fifteen); }
-#jam-out-title1 .jam-out-title-letter:nth-child(16) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fourteen); }
-#jam-out-title1 .jam-out-title-letter:nth-child(17) { background-position: top 1000% left 1000%; }
-#jam-out-title1 .jam-out-title-letter:nth-child(18) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fifteen); }
-#jam-out-title1 .jam-out-title-letter:nth-child(19) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-six); }
+#jam-out-title1 .jam-out-title-letter:nth-child(11) { background-position: top var(--text-sprite-row-nine) left var(--text-sprite-col-four); }
+#jam-out-title1 .jam-out-title-letter:nth-child(12) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-six); }
+#jam-out-title1 .jam-out-title-letter:nth-child(13) { background-position: top var(--text-sprite-row-eight) left var(--text-sprite-col-six); }
+#jam-out-title1 .jam-out-title-letter:nth-child(14) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fourteen); }
+#jam-out-title1 .jam-out-title-letter:nth-child(15) { background-position: top 1000% left 1000%; }
+#jam-out-title1 .jam-out-title-letter:nth-child(16) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-eight); }
+#jam-out-title1 .jam-out-title-letter:nth-child(17) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-fifteen); }
+#jam-out-title1 .jam-out-title-letter:nth-child(18) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-thirteen); }
+#jam-out-title1 .jam-out-title-letter:nth-child(19) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-one); }
+#jam-out-title1 .jam-out-title-letter:nth-child(20) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-seven); }
+#jam-out-title1 .jam-out-title-letter:nth-child(21) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-five); }
 
 #jam-out-title2 {
   position: absolute;
@@ -246,7 +248,7 @@
 #instructions2 .instructions-letter:nth-child(22) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-nine); }
 #instructions2 .instructions-letter:nth-child(23) { background-position: top var(--text-sprite-row-seven) left var(--text-sprite-col-three); }
 
-#github-twitter {
+#github {
   position: absolute;
   top: 95%;
   left: 50%;
@@ -255,7 +257,7 @@
   display: flex;
   justify-content: center;
 }
-#github-twitter .github-twitter-letter {
+#github .github-letter {
   display: inline-block;
   height: 18px;
   width: 16px;
@@ -263,20 +265,20 @@
   background-repeat: no-repeat;
   background-size: 250px auto;
 }
-#github-twitter .github-twitter-letter:nth-child(1) { animation: v var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(2) { animation: i var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(3) { animation: e var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(4) { animation: w var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(5) { background-position: top 1000% left 1000%; }
-#github-twitter .github-twitter-letter:nth-child(6) { animation: o var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(7) { animation: n var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(8) { background-position: top 1000% left 1000%; }
-#github-twitter .github-twitter-letter:nth-child(9) { animation: g var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(10) { animation: i var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(11) { animation: t var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(12) { animation: h var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(13) { animation: u var(--text-sprite-animation); }
-#github-twitter .github-twitter-letter:nth-child(14) { animation: b var(--text-sprite-animation); }
+#github .github-letter:nth-child(1) { animation: v var(--text-sprite-animation); }
+#github .github-letter:nth-child(2) { animation: i var(--text-sprite-animation); }
+#github .github-letter:nth-child(3) { animation: e var(--text-sprite-animation); }
+#github .github-letter:nth-child(4) { animation: w var(--text-sprite-animation); }
+#github .github-letter:nth-child(5) { background-position: top 1000% left 1000%; }
+#github .github-letter:nth-child(6) { animation: o var(--text-sprite-animation); }
+#github .github-letter:nth-child(7) { animation: n var(--text-sprite-animation); }
+#github .github-letter:nth-child(8) { background-position: top 1000% left 1000%; }
+#github .github-letter:nth-child(9) { animation: g var(--text-sprite-animation); }
+#github .github-letter:nth-child(10) { animation: i var(--text-sprite-animation); }
+#github .github-letter:nth-child(11) { animation: t var(--text-sprite-animation); }
+#github .github-letter:nth-child(12) { animation: h var(--text-sprite-animation); }
+#github .github-letter:nth-child(13) { animation: u var(--text-sprite-animation); }
+#github .github-letter:nth-child(14) { animation: b var(--text-sprite-animation); }
 
 /* -------------------------- */
 /* --- JAM OUT BACKGROUND --- */
@@ -632,3 +634,33 @@
 @keyframes shifty22 { from { background-position: top 83% left 66% } to { background-position: top 83% left 132% } }
 @keyframes shifty23 { from { background-position: top 91% left 0% } to { background-position: top 91% left 66% } }
 @keyframes shifty24 { from { background-position: top 91% left 66% } to { background-position: top 91% left 132% } }
+
+
+@media screen and (max-width : 650px) {
+  #mobile {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    background-image: url(./assets/space-background.png);
+    background-repeat: no-repeat;
+    background-position: top 0% left 0%;
+    background-size: cover;
+  }
+  #mobile:after {
+    font-family: Arial, Helvetica, sans-serif;
+    content: 'Please jam out on a desktop.';
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3rem;
+    display: inline-block;
+    width: 100vw;
+    text-align: center;
+  }
+  #space-background {
+    overflow: hidden;
+  }
+}
